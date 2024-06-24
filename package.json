@@ -1,0 +1,59 @@
+{
+  "name": "mobiloitte",
+  "version": "1.0.0",
+  "description": "When you're ready, start your application by running: `docker compose up --build`.",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "test": "jest --runInBand --detectOpenHandles",
+    "worker": "ts-node src/workers/userWorker.ts",
+    "docker:build": "docker build -t node-app .",
+    "docker:run": "docker run --name node-app-container -p 8000:8000 node-app",
+    "docker:compose:up": "docker-compose up",
+    "docker:compose:down": "docker-compose down"
+  },
+  "keywords": [],
+  "author": "Deepak Kumar Mandal",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.3",
+    "morgan": "^1.10.0",
+    "redis": "^4.6.14",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.14.5",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
