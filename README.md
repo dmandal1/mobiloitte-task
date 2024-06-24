@@ -9,9 +9,8 @@ This project is a RESTful API built with Node.js, Express, TypeScript, MongoDB, 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Routes](#routes)
-- [Testing](#testing)
 - [Docker](#docker)
-- [Environment Variables](#environment-variables)
+- [Testing](#testing)
 
 ## Features
 
@@ -140,11 +139,6 @@ Auth Routes
          ```bash
          Authorization: Bearer <your-jwt-token>
          ```
-## Testing
-
-  ```bash
-    npm test
-  ```
 ## Docker
   # Building and Running with Docker Compose
   1. **Build and start the containers:**
@@ -174,3 +168,8 @@ Make sure to set the following environment variables in your .env file:
    RABBITMQ_DEFAULT_USER=
    RABBITMQ_DEFAULT_PASS=
    ```
+## Testing
+
+  ```bash
+    npm run test
+  ```
