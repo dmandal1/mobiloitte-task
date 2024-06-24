@@ -131,7 +131,7 @@ Auth Routes
     {
       "name": "Jane Doe",
       "email": "jane.doe@example.com",
-      "password:"NewPassword123!"
+      "password" :"NewPassword123!"
     }
     ```
 * DELETE /api/v1/users/{id} Delete a user by ID (Protected)
