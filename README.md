@@ -12,7 +12,6 @@ This project is a RESTful API built with Node.js, Express, TypeScript, MongoDB, 
 - [Testing](#testing)
 - [Docker](#docker)
 - [Environment Variables](#environment-variables)
-- [License](#license)
 
 ## Features
 
