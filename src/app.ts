@@ -8,6 +8,10 @@ import errorHandler from './middlewares/errorMiddleware';
 import redisClient from './services/redisService';
 import { connectToRabbitMQ } from './services/rabbitmqService';
 import swaggerSetup from './config/swagger';
+import mongoSanitize from 'express-mongo-sanitize';
+import helmet from 'helmet';
+import hpp from 'hpp';
+import cors from 'cors';
 import 'colors';
 
 // Load env vars
@@ -17,7 +21,7 @@ async function connect() {
 // Connect to database
 connectDB();
 // RabbitMQ connection
-// await connectToRabbitMQ();
+await connectToRabbitMQ();
 // Connect to redis
 await redisClient.connect();
 }
@@ -46,11 +50,26 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Sanitize data
+app.use(mongoSanitize());
+
+// Set security headers
+app.use(helmet());
+
+
+// Error handling
+app.use(errorHandler);
+
+// Prevent http param pollution
+app.use(hpp());
+
+// Enable CORS
+app.use(cors());
+
 // Mount routers
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 
-app.use(errorHandler);
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err: any, promise: Promise<any>) => {
